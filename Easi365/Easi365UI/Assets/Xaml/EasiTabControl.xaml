@@ -1,0 +1,274 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:easi="clr-namespace:Easi365UI.Windows.Controls"
+    >
+    <DataTemplate x:Key="EasiTabHeader">
+        <Grid Width="100" Height="25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="37*"/>
+            </Grid.ColumnDefinitions>
+            <!--Source="/Easi365UI;component/Assets/Images/ps-enter.png  MyEnterBrush"--> 
+            <!--<Image 
+                Grid.Column="0"  
+                Width="28" Height="26" 
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Source="{Binding HeaderIcon, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabItem}}}"
+                Stretch="None"/>-->
+            <ContentPresenter
+                Grid.Column="0"
+                Width="28" Height="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{Binding HeaderIcon, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabItem}}}"/>
+            <TextBlock Grid.Column="1" 
+				x:Name="TabHeaderTextBlock"
+				Foreground="White"
+				TextWrapping="Wrap" Text="{Binding MyHeaderText, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabItem}}}" 
+				VerticalAlignment="Center" Margin="4,0,0,0"/>
+        </Grid>
+        <!--#304B52-->
+        <DataTemplate.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabItem}}}" Value="true"/>
+                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Top"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Foreground" TargetName="TabHeaderTextBlock" Value="#304B52"/>
+            </MultiDataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <Style x:Key="TabItemFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="3,3,3,1" SnapsToDevicePixels="true" Stroke="Black" StrokeThickness="1" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#8C8E94"/>
+    <LinearGradientBrush x:Key="TabItem.Static.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#F0F0F0" Offset="0.0"/>
+        <GradientStop Color="#E5E5E5" Offset="1.0"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="TabItem.Static.Border" Color="#FFFFFF"/>
+    <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#ECF4FC" Offset="0.0"/>
+        <GradientStop Color="#DCECFC" Offset="1.0"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="#7EB4EA"/>
+    <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
+    <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#6B95A1"/>
+    <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+    <LinearGradientBrush x:Key="TabItem.Selected.Backgroudn.L" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FFFFFF" Offset="0.0"/>
+        <GradientStop Color="#ECECEC" Offset="1.0"/>
+    </LinearGradientBrush>
+    <Style x:Key="EasiTabItemStyle" TargetType="{x:Type easi:EasiTabItem}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="{StaticResource TabItem.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TabItem.Static.Border}"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0,2,6,2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="HeaderTemplate" Value="{DynamicResource EasiTabHeader}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type easi:EasiTabItem}">
+                    <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Width="100">
+                        <Border x:Name="mainBorder" 
+						BorderBrush="{TemplateBinding BorderBrush}" 
+						BorderThickness="1,1,1,1" 
+						Background="{TemplateBinding Background}" Margin="0,0,8,0"
+						CornerRadius="3"
+						>
+                            <Border x:Name="innerBorder" BorderBrush="{StaticResource TabItem.Selected.Border}" BorderThickness="1,1,1,1" Background="{StaticResource TabItem.Selected.Backgroudn.L}" Margin="0" Opacity="0"/>
+                        </Border>
+                        <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Left"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Bottom"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Right"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Top"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Left"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Bottom"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Right"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Top"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Left"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Left"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Panel.ZIndex" Value="1"/>
+                            <Setter Property="Margin" Value="-2,-2,0,-2"/>
+                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Bottom"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Bottom"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Panel.ZIndex" Value="1"/>
+                            <Setter Property="Margin" Value="-2,0,-2,-2"/>
+                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Right"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Right"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Panel.ZIndex" Value="1"/>
+                            <Setter Property="Margin" Value="0,-2,-2,-2"/>
+                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Top"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
+                            <Setter Property="Background" TargetName="innerBorder" Value="{x:Null}"/>
+
+                            <Setter Property="Margin" Value="10,-2,-2,0"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type easi:EasiTabControl}}}" Value="Top"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Panel.ZIndex" Value="1"/>
+                            <Setter Property="Margin" Value="10,-2,-2,-1"/>
+                            <Setter Property="Opacity" TargetName="innerBorder" Value="0"/>
+
+                            <Setter Property="Background" TargetName="innerBorder" Value="{x:Null}"/>
+                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,1"/>
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- 应该在此定义资源字典条目。-->
+</ResourceDictionary>

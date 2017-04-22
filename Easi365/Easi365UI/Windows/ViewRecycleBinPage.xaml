@@ -1,0 +1,6 @@
+﻿<Window x:Class="Easi365UI.Windows.ViewRecycleBinPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="回收站" Height="320" Width="845" Loaded="Window_Loaded">
+    <WebBrowser Name="recycleBinViewr"/>
+</Window>

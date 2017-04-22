@@ -1,0 +1,57 @@
+﻿<eui:EasiWindow x:Class="Easi365UI.DeptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+        xmlns:uc="clr-namespace:Easi365UI.Windows"
+        xmlns:ext="clr-namespace:Easi365UI.Extention"
+        Title="DeptWindow" Height="260" Width="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="DeptWindow_Loaded" WindowStyle="None">
+    <Grid>
+        <Border BorderThickness="1" Background="White" BorderBrush="Black" Height="260">
+            <Grid>
+                <Canvas x:Name="ContentHeader" Height="30" VerticalAlignment="Top" Width="Auto">
+                    <Canvas.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1954BB" Offset="0"/>
+                            <GradientStop Color="#65ADCA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Canvas.Background>
+                    <TextBlock x:Name="wTitle" Text="添加子部门" FontSize="14" Foreground="White" FontWeight="Bold" Canvas.Left="10" Canvas.Top="5" />
+                    <eui:EasiButton x:Name="MinBtn" VerticalAlignment="Top" Width="27" Height="22" Click="MinBtn_Click" ToolTip="最小化" Canvas.Right="25">
+                        <eui:EasiButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Assets/images/mim.png"/>
+                        </eui:EasiButton.MyMoverBrush>
+                        <eui:EasiButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Assets/images/mie.png"/>
+                        </eui:EasiButton.MyEnterBrush>
+                        <eui:EasiButton.Background>
+                            <ImageBrush ImageSource="/Assets/images/min.png"/>
+                        </eui:EasiButton.Background>
+                    </eui:EasiButton>
+                    <Image Height="28" Canvas.Top="0" Width="1" Source="/Assets/images/line.png" Canvas.Right="24"/>
+                    <eui:EasiButton x:Name="CloseBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="27" Height="22" Click="CloseWindow" ToolTip="关闭" Canvas.Right="0" Canvas.Top="0">
+                        <eui:EasiButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                        </eui:EasiButton.MyMoverBrush>
+                        <eui:EasiButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                        </eui:EasiButton.MyEnterBrush>
+                        <eui:EasiButton.Background>
+                            <ImageBrush ImageSource="/Assets/images/close.png"/>
+                        </eui:EasiButton.Background>
+                    </eui:EasiButton>
+                </Canvas>
+                <Label Content="上级部门:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.05,-0.52"/>
+                <TextBlock Name="txtbParentDept" HorizontalAlignment="Left" Margin="89,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                <Label Content="部门名称:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.05,-0.52"/>
+                <TextBox x:Name="txtSubDept" HorizontalAlignment="Left" Height="23" Margin="90,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+                <Label Content="空间管理员:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.375,-0.44"/>
+                <ext:ChooseUserPicker x:Name="txtAdmin" AllowMultiple="True" Margin="90,125,5,80" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,15,5,15">
+                    <Button x:Name="btnAddSubDept" Click="btnAddSubDept_Click" IsDefault="True" Width="75" Height="24" Content="提交"/>
+                    <Button x:Name="CancelAddSubDept" Content="取消"  Width="75" Height="24" Margin="10,0,0,0" Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <uc:Loading x:Name="loading" LoadingText="正在提交..." Visibility="Collapsed"></uc:Loading>
+    </Grid>
+</eui:EasiWindow>

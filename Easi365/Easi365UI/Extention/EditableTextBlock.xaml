@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Easi365UI.Extention.EditableTextBlock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Easi365UI.Extention"
+                x:Name="txtFileName">
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="EditModeTemplate">
+            <TextBox KeyDown="TextBox_KeyDown" Loaded="TextBox_Loaded" LostFocus="TextBox_LostFocus"
+                     Text="{Binding ElementName=txtFileName, Path=Text, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0" BorderThickness="1" TextWrapping="Wrap" />
+        </DataTemplate>
+        
+        <DataTemplate x:Key="DisplayModeTemplate">
+            <TextBlock Text="{Binding ElementName=txtFileName, Path=FormattedText}" Margin="2,0,2,0" TextWrapping="Wrap" TextAlignment="Center" />
+        </DataTemplate>
+        
+        <Style TargetType="{x:Type local:EditableTextBlock}">
+            <Style.Triggers>
+                <Trigger Property="IsInEditMode" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource EditModeTemplate}" />
+                </Trigger>
+                <Trigger Property="IsInEditMode" Value="False">
+                    <Setter Property="ContentTemplate" Value="{StaticResource DisplayModeTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+</UserControl>

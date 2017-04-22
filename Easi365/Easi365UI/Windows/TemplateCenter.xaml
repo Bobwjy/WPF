@@ -1,0 +1,8 @@
+﻿<Window x:Class="Easi365UI.Windows.TemplateCenter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="模版中心" Height="620" Width="830" Loaded="Window_Loaded">
+    <Grid>
+        <WebBrowser Name="TemplateCenterWebBrowser"></WebBrowser>
+    </Grid>
+</Window>

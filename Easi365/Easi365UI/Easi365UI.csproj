@@ -1,0 +1,1094 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{749C30E9-97CA-4B90-A2BF-ACB9C7B30595}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Easi365UI</RootNamespace>
+    <AssemblyName>Easi365UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <PublishUrl>E:\deploy\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>\\BYRON\deploy\</UpdateUrl>
+    <SupportUrl>http://localhost:6868/</SupportUrl>
+    <ProductName>Easi365</ProductName>
+    <PublisherName>Sinoserve</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.html</WebPage>
+    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9EABEA731E17B8E023BDBB73299891AE02D84021</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Easi365UI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>easi365.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Easi365UI.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net40\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ClientLib\Asm3trd\Microsoft.Exchange.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Model, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ClientLib\Asm3trd\Microsoft.Lync.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Asm3trd\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ClientLib\Asm3trd\Microsoft.SharePoint.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ClientLib\Asm3trd\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ClientLib\Asm3trd\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualC.STLCLR" />
+    <Reference Include="Microsoft.Windows.Shell">
+      <HintPath>..\packages\Microsoft.Windows.Shell.3.0.1.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CompanyLeftMenu.cs" />
+    <Compile Include="Entities\UserInfo.cs" />
+    <Compile Include="Entities\WebBrowserOverlayWF.cs" />
+    <Compile Include="Entities\Win32.cs" />
+    <Compile Include="Extention\EditableTextBlock.xaml.cs">
+      <DependentUpon>EditableTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extention\GifImage\GifAnimation.cs" />
+    <Compile Include="Extention\GifImage\GifImage.cs" />
+    <Compile Include="Extention\ListViewExt\ListBoxSelectionExt.cs" />
+    <Compile Include="Extention\ListViewExt\ListSortDirector.cs" />
+    <Compile Include="Extention\ListViewExt\ListViewAdorner.cs" />
+    <Compile Include="Extention\ListViewExt\ListViewBehavior.cs" />
+    <Compile Include="Extention\ListViewExt\SortInfo.cs" />
+    <Compile Include="Extention\ListViewExt\UIElementAdorner.cs" />
+    <Compile Include="Extention\UserPicker\ChooseUser.xaml.cs">
+      <DependentUpon>ChooseUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extention\UserPicker\ChooseUserPicker.xaml.cs">
+      <DependentUpon>ChooseUserPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extention\WebBrowserExtension.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lync\Chat.xaml.cs">
+      <DependentUpon>Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lync\Entities\Common.cs" />
+    <Compile Include="Lync\Entities\FormManager.cs" />
+    <Compile Include="Lync\Entities\LyncContract.cs" />
+    <Compile Include="Lync\Entities\LyncConversation.cs" />
+    <Compile Include="Lync\Entities\LyncGroup.cs" />
+    <Compile Include="Lync\Entities\User.cs" />
+    <Compile Include="Lync\Invite.xaml.cs">
+      <DependentUpon>Invite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Commands\OpenMainWindowCommand.cs" />
+    <Compile Include="Models\DiskEntryModelBase.cs" />
+    <Compile Include="Models\EasiNavigationModel.cs" />
+    <Compile Include="Models\EntryModelBase.cs" />
+    <Compile Include="Models\IEntryModel.cs" />
+    <Compile Include="Models\IProfile.cs" />
+    <Compile Include="Models\LocalViewModel.cs" />
+    <Compile Include="Models\LyncViewModel.cs" />
+    <Compile Include="Models\OrgViewModel.cs" />
+    <Compile Include="Models\SkyDrive\SkyDriveItemModel.cs" />
+    <Compile Include="Models\SkyDrive\SkyDriveModelCache.cs" />
+    <Compile Include="Models\SkyDrive\SkyDriveProfile.cs" />
+    <Compile Include="Models\TreeViewModel.cs" />
+    <Compile Include="Models\UploadFileModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Service\UserHelper.cs" />
+    <Compile Include="ShareWindow.xaml.cs">
+      <DependentUpon>ShareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSettings.xaml.cs">
+      <DependentUpon>SystemSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrgManageUC.xaml.cs">
+      <DependentUpon>OrgManageUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ControlHelper.cs" />
+    <Compile Include="Util\FileHelper.cs" />
+    <Compile Include="Util\LocalFileCommand.cs" />
+    <Compile Include="Util\MoveToForeground.cs" />
+    <Compile Include="Util\NetWorkHelper.cs" />
+    <Compile Include="Util\NetworkStatus.cs" />
+    <Compile Include="Util\NetworkStatusChangedArgs.cs" />
+    <Compile Include="Util\PasswordBoxBindingHelper.cs" />
+    <Compile Include="Util\Win32.cs" />
+    <Compile Include="Windows\Controls\Easi365Window.cs" />
+    <Compile Include="Windows\Controls\EasiButton.cs" />
+    <Compile Include="Windows\Controls\EasiLinkLable.cs" />
+    <Compile Include="Windows\Controls\EasiTabControl.cs" />
+    <Compile Include="Windows\Controls\EasiTabItem.cs" />
+    <Compile Include="Windows\Controls\EasiWindow.cs" />
+    <Compile Include="Windows\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Windows\Converters\FileSizeFormat.cs" />
+    <Compile Include="Windows\Converters\NumberToVisibility.cs" />
+    <Compile Include="Windows\Converters\SharedWithToIcon.cs" />
+    <Compile Include="Windows\Converters\StringToImage.cs" />
+    <Compile Include="Windows\Converters\NumberToText.cs" />
+    <Compile Include="Windows\Converters\ToComboxRole.cs" />
+    <Compile Include="Windows\FancyBalloon.xaml.cs">
+      <DependentUpon>FancyBalloon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FileNamePicker.xaml.cs">
+      <DependentUpon>FileNamePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoadingMask.xaml.cs">
+      <DependentUpon>LoadingMask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TemplateCenter.xaml.cs">
+      <DependentUpon>TemplateCenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UploadingFileDetailPage.xaml.cs">
+      <DependentUpon>UploadingFileDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ViewDocPage.xaml.cs">
+      <DependentUpon>ViewDocPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ViewLogPage.xaml.cs">
+      <DependentUpon>ViewLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ViewRecycleBinPage.xaml.cs">
+      <DependentUpon>ViewRecycleBinPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ViewVersionHistoryPage.xaml.cs">
+      <DependentUpon>ViewVersionHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowBehaviorHelper.cs" />
+    <Compile Include="MaxWindow.xaml.cs">
+      <DependentUpon>MaxWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\Xaml\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Xaml\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Xaml\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Xaml\EasiTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Xaml\ListViewDic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Xaml\ListViewItemDic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Xaml\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Xaml\TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Extention\EditableTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extention\UserPicker\ChooseUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extention\UserPicker\ChooseUserPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lync\Chat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lync\Invite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ShareWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Easi365Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\EasiButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\EasiLinkLable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\EasiListSort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\EasiTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\EasiTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\EasiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ExpanderAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\OrgManageUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FancyBalloon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FileNamePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LoadingMask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MaxWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\TemplateCenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UploadingFileDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ViewDocPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ViewLogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ViewRecycleBinPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ViewVersionHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="Web.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Easi365UI_TemporaryKey.pfx" />
+    <None Include="key.snk" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Assets\Images\close-rarc.png" />
+    <Resource Include="Assets\Images\btn-hbg.png" />
+    <Resource Include="Assets\Images\attention.png" />
+    <Resource Include="Assets\Images\personal.png" />
+    <Resource Include="Assets\Images\share_me.png" />
+    <Resource Include="Assets\Images\collapse_nav.png" />
+    <Resource Include="Assets\Images\expansion_nav.png" />
+    <Resource Include="Assets\Images\settings_ctx.png" />
+    <Resource Include="Assets\UI\Inactive.ico" />
+    <Resource Include="Assets\Images\UploadDetailButton.png" />
+    <Resource Include="Assets\UI\Small\access.png" />
+    <Resource Include="Assets\UI\Small\excel.png" />
+    <Resource Include="Assets\UI\Small\folder.png" />
+    <Resource Include="Assets\UI\Small\ppt.png" />
+    <Resource Include="Assets\UI\Small\txt.png" />
+    <Resource Include="Assets\UI\Small\word.png" />
+    <Resource Include="Assets\UI\Large\accdb.png" />
+    <Resource Include="Assets\UI\Large\asp.png" />
+    <Resource Include="Assets\UI\Large\aspx.png" />
+    <Resource Include="Assets\UI\Large\avi.png" />
+    <Resource Include="Assets\UI\Large\bmp.png" />
+    <Resource Include="Assets\UI\Large\cap.png" />
+    <Resource Include="Assets\UI\Large\css.png" />
+    <Resource Include="Assets\UI\Large\dll.png" />
+    <Resource Include="Assets\UI\Large\doc.png" />
+    <Resource Include="Assets\UI\Large\docx.png" />
+    <Resource Include="Assets\UI\Large\eps.png" />
+    <Resource Include="Assets\UI\Large\exe.png" />
+    <Resource Include="Assets\UI\Large\fax.png" />
+    <Resource Include="Assets\UI\Large\fla.png" />
+    <Resource Include="Assets\UI\Large\folder.png" />
+    <Resource Include="Assets\UI\Large\gif.png" />
+    <Resource Include="Assets\UI\Large\htm.png" />
+    <Resource Include="Assets\UI\Large\html.png" />
+    <Resource Include="Assets\UI\Large\ico.png" />
+    <Resource Include="Assets\UI\Large\img.png" />
+    <Resource Include="Assets\UI\Large\ini.png" />
+    <Resource Include="Assets\UI\Large\JAR.png" />
+    <Resource Include="Assets\UI\Large\java.png" />
+    <Resource Include="Assets\UI\Large\jnt.png" />
+    <Resource Include="Assets\UI\Large\jpeg.png" />
+    <Resource Include="Assets\UI\Large\jpg.png" />
+    <Resource Include="Assets\UI\Large\js.png" />
+    <Resource Include="Assets\UI\Large\jsp.png" />
+    <Resource Include="Assets\UI\Large\mdb.png" />
+    <Resource Include="Assets\UI\Large\mp3.png" />
+    <Resource Include="Assets\UI\Large\mp4.png" />
+    <Resource Include="Assets\UI\Large\mpeg.png" />
+    <Resource Include="Assets\UI\Large\mpg.png" />
+    <Resource Include="Assets\UI\Large\mpp.png" />
+    <Resource Include="Assets\UI\Large\note.png" />
+    <Resource Include="Assets\UI\Large\pdf.png" />
+    <Resource Include="Assets\UI\Large\php.png" />
+    <Resource Include="Assets\UI\Large\png.png" />
+    <Resource Include="Assets\UI\Large\ppt.png" />
+    <Resource Include="Assets\UI\Large\pptx.png" />
+    <Resource Include="Assets\UI\Large\psd.png" />
+    <Resource Include="Assets\UI\Large\pst.png" />
+    <Resource Include="Assets\UI\Large\pub.png" />
+    <Resource Include="Assets\UI\Large\rar.png" />
+    <Resource Include="Assets\UI\Large\read.png" />
+    <Resource Include="Assets\UI\Large\set.png" />
+    <Resource Include="Assets\UI\Large\swf.png" />
+    <Resource Include="Assets\UI\Large\txt.png" />
+    <Resource Include="Assets\UI\Large\unkown.png" />
+    <Resource Include="Assets\UI\Large\wma.png" />
+    <Resource Include="Assets\UI\Large\xlsx.png" />
+    <Resource Include="Assets\UI\Large\zip.png" />
+    <Resource Include="Assets\UI\Large\xls.png" />
+    <Resource Include="Assets\UI\Large\iso.png" />
+    <Resource Include="Assets\UI\Large\3gp.png" />
+    <Resource Include="Assets\UI\Large\mov.png" />
+    <Resource Include="Assets\UI\Large\rmvb.png" />
+    <Resource Include="Assets\UI\Large\wmv.png" />
+    <Content Include="Asm3trd\Microsoft.mshtml.dll" />
+    <Content Include="Asm3trd\Microsoft.SharePoint.Client.dll" />
+    <Content Include="Asm3trd\Microsoft.SharePoint.Client.Runtime.dll" />
+    <Content Include="Asm3trd\Microsoft.SharePoint.Client.UserProfiles.dll" />
+    <Content Include="Asm3trd\Microsoft.Threading.Tasks.dll" />
+    <Content Include="Asm3trd\Microsoft.Threading.Tasks.Extensions.Desktop.dll" />
+    <Resource Include="Asm3trd\Microsoft.Threading.Tasks.Extensions.Desktop.xml" />
+    <Content Include="Asm3trd\Microsoft.Threading.Tasks.Extensions.dll" />
+    <Resource Include="Asm3trd\Microsoft.Threading.Tasks.Extensions.xml" />
+    <Resource Include="Asm3trd\Microsoft.Threading.Tasks.xml" />
+    <Content Include="Asm3trd\System.IO.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Asm3trd\System.IO.xml" />
+    <Content Include="Asm3trd\System.Runtime.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Asm3trd\System.Runtime.xml" />
+    <Content Include="Asm3trd\System.Threading.Tasks.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Asm3trd\System.Threading.Tasks.xml" />
+    <Resource Include="Assets\Images\collapse_view.png" />
+    <Resource Include="Assets\Images\button-search-enter.png" />
+    <Resource Include="Assets\Images\button-search.png" />
+    <Resource Include="Assets\Images\Refresh.png" />
+    <Resource Include="Assets\Images\add_dept.png" />
+    <Resource Include="Assets\Images\add_staff.png" />
+    <Resource Include="Assets\Images\syncorg.png" />
+    <Resource Include="Assets\Images\syncorg-bg.png" />
+    <Resource Include="Assets\Images\document.png" />
+    <Resource Include="Assets\Images\subweb.png" />
+    <Resource Include="Assets\Images\coospace.png" />
+    <Resource Include="Assets\Images\companyspace.png" />
+    <Content Include="openfolderHS.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Microsoft Excel 工作表.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Microsoft PowerPoint 演示文稿.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Microsoft Word 文档.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Images\orgmanage.png" />
+    <Resource Include="Assets\Images\easi365.ico" />
+    <Resource Include="easi365.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\mie.png" />
+    <Resource Include="Assets\Images\mim.png" />
+    <Resource Include="Assets\Images\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\login-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\login-settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\loginbtn-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\HeadPicture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\toolBanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientLib\ClientLib.csproj">
+      <Project>{8951db04-e702-45ee-b263-1e9514f9ed7c}</Project>
+      <Name>ClientLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotifyIconWpf\NotifyIconWpf.csproj">
+      <Project>{7ac63864-7638-41c4-969c-d3197ef2bed9}</Project>
+      <Name>NotifyIconWpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Odyssey\Odyssey.csproj">
+      <Project>{333fdc55-6b47-4a64-a2df-a4c5823fac74}</Project>
+      <Name>Odyssey</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\main-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\ps-enter.png" />
+    <Resource Include="Assets\Images\ps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\emails-enter.png" />
+    <Resource Include="Assets\Images\emails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\cs-enter.png" />
+    <Resource Include="Assets\Images\cs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\org-enter.png" />
+    <Resource Include="Assets\Images\org.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\tasks-enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\tasks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\newfolder-hover.png" />
+    <Resource Include="Assets\Images\newfolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\share-hover.png" />
+    <Resource Include="Assets\Images\share.png" />
+    <Resource Include="Assets\Images\upload-hover.png" />
+    <Resource Include="Assets\Images\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\delete-hover.png" />
+    <Resource Include="Assets\Images\delete.png" />
+    <Resource Include="Assets\Images\sendfile-hover.png" />
+    <Resource Include="Assets\Images\sendfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\newfile-hover.png" />
+    <Resource Include="Assets\Images\newfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\UI\filelist-folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\filelist-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\org-head.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\top-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\top-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\top-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\UI\Close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Asm3trd\System.IO.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Asm3trd\System.Runtime.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Asm3trd\System.Threading.Tasks.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Caliburn.Micro">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="ClientLib">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DataBase\EasiDB.mdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Easi365DB">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Hardcodet.Wpf.TaskbarNotification">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Exchange.WebServices">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Lync.Model">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Office.Uc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SharePoint.Client">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SharePoint.Client.Runtime">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SharePoint.Client.UserProfiles">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Threading.Tasks">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Threading.Tasks.Extensions">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.Windows.Shell">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Windows.Interactivity">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Template\Access 模板.accdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Template\Microsoft Access 数据库.accdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Template\Microsoft Excel 工作表.xlsx">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Template\Microsoft PowerPoint 演示文稿.pptx">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Template\Microsoft Word 文档.docx">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Template\文本文件.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\closeb.png" />
+    <Content Include="Template\Microsoft Access 数据库.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\文本文件.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\UI\private.png" />
+    <Resource Include="Assets\UI\shared.png" />
+    <Resource Include="Assets\Images\que-mark.png" />
+    <Resource Include="Assets\Images\del.png" />
+    <Resource Include="Assets\Images\del_hover.png" />
+    <Resource Include="Assets\UI\excel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\folder.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\pdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\word.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\zip.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\UI\unknow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\Add.png" />
+    <Resource Include="Assets\Images\Remove.png" />
+    <Resource Include="Assets\Images\view.png" />
+    <Resource Include="Assets\Images\details_view.png" />
+    <Resource Include="Assets\Images\thumb_view.png" />
+    <Resource Include="Assets\UI\ps.png" />
+    <Resource Include="Assets\Images\max.png" />
+    <Resource Include="Assets\Images\maxb.png" />
+    <Resource Include="Assets\Images\maxa.png" />
+    <Resource Include="Assets\Images\maxab.png" />
+    <Resource Include="Assets\Images\DefUserPic.png" />
+    <Resource Include="Assets\Images\folder.png" />
+    <Resource Include="Assets\Images\folder_checked.png" />
+    <Resource Include="Assets\UI\nav_back.png" />
+    <Resource Include="Assets\UI\nav_back_disabled.png" />
+    <Resource Include="Assets\UI\nav_forward.png" />
+    <Resource Include="Assets\UI\nav_forward_disabled.png" />
+    <Resource Include="Assets\UI\nav_home.png" />
+    <Resource Include="Assets\UI\nav_home_disabled.png" />
+    <Resource Include="Assets\Images\tag.png" />
+    <Resource Include="Assets\Images\home.png" />
+    <Resource Include="Assets\Images\home_hover.png" />
+    <Resource Include="Assets\Images\back.png" />
+    <Resource Include="Assets\Images\back_hover.png" />
+    <Resource Include="Assets\Images\load.gif" />
+    <Resource Include="Assets\Images\error.png" />
+    <Resource Include="Assets\Images\photo.png" />
+    <Resource Include="Assets\Images\add_contract.png" />
+    <Resource Include="Assets\Images\search.png" />
+    <Resource Include="Assets\Images\lync.png" />
+    <Resource Include="Assets\Images\lync_hover.png" />
+    <Resource Include="Assets\Images\spacemanage.png" />
+    <Resource Include="Assets\Images\createspace.png" />
+    <Content Include="DataBase\EasiDB.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

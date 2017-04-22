@@ -1,0 +1,46 @@
+﻿<eui:EasiWindow x:Class="Easi365UI.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+        Title="DialogWindow" Height="145" Width="295" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Border BorderThickness="1" Background="White" BorderBrush="#65ADCA" Height="145">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="65"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Canvas x:Name="ContentHeader" Grid.Row="0" Height="30" VerticalAlignment="Top" Width="Auto">
+                    <Canvas.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1954BB" Offset="0"/>
+                            <GradientStop Color="#65ADCA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Canvas.Background>
+                    <TextBlock x:Name="wTitle" Text="Easi365网盘" FontSize="13" Foreground="White" FontWeight="Bold" Canvas.Left="10" Canvas.Top="5" />
+                    <Image Height="28" Canvas.Top="0" Width="1" Source="/Assets/images/line.png" Canvas.Right="26"/>
+                    <eui:EasiButton x:Name="CloseBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="27" Height="22" Click="CloseBtn_Click" ToolTip="关闭" Canvas.Right="0" Canvas.Top="2">
+                        <eui:EasiButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Assets/images/close.png"/>
+                        </eui:EasiButton.MyMoverBrush>
+                        <eui:EasiButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Assets/images/close.png"/>
+                        </eui:EasiButton.MyEnterBrush>
+                        <eui:EasiButton.Background>
+                            <ImageBrush ImageSource="/Assets/images/close.png"/>
+                        </eui:EasiButton.Background>
+                    </eui:EasiButton>
+                </Canvas>
+                <Canvas Grid.Row="1">
+                    <Image Source="Assets/Images/que-mark.png" Width="35" Height="35" Canvas.Left="28" Canvas.Top="15" RenderTransformOrigin="0.25,0.472"></Image>
+                    <TextBlock Name="tbMessage" Canvas.Left="74" Width="200" Canvas.Top="23" TextWrapping="Wrap"/>
+                </Canvas>
+                <Canvas Grid.Row="2">
+                    <Button Name="btnYes" Click="btnYes_Click" Content="是" Width="80" Height="22" Canvas.Left="57" Canvas.Top="10"></Button>
+                    <Button Name="btnNo" Click="btnNo_Click" Content="否" Width="80" Height="22" RenderTransformOrigin="2.112,1.158" Canvas.Left="153" Canvas.Top="10"></Button>
+                </Canvas>
+            </Grid>
+        </Border>
+    </Grid>
+</eui:EasiWindow>

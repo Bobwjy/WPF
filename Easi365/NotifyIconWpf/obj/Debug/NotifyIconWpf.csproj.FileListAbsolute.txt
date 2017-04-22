@@ -1,0 +1,13 @@
+C:\Easi365\NotifyIconWpf\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Easi365\NotifyIconWpf\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\Easi365\NotifyIconWpf\obj\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Easi365\NotifyIconWpf\obj\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\Users\Administrator\Desktop\Easi365\NotifyIconWpf\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Users\Administrator\Desktop\Easi365\NotifyIconWpf\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\Users\Administrator\Desktop\Easi365\NotifyIconWpf\obj\Debug\NotifyIconWpf.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Easi365\NotifyIconWpf\obj\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Users\Administrator\Desktop\Easi365\NotifyIconWpf\obj\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\naton\Easi365\NotifyIconWpf\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\naton\Easi365\NotifyIconWpf\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\naton\Easi365\NotifyIconWpf\obj\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\naton\Easi365\NotifyIconWpf\obj\Debug\Hardcodet.Wpf.TaskbarNotification.pdb

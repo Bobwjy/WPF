@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Easi365UI;component/Themes/EasiWindow.xaml" />
+        <ResourceDictionary Source="/Easi365UI;component/Themes/EasiButton.xaml" />
+        <ResourceDictionary Source="/Easi365UI;component/Themes/EasiLinkLable.xaml" />
+        <ResourceDictionary Source="/Easi365UI;component/Themes/EasiTabControl.xaml" />
+        <!--<ResourceDictionary Source="/Easi365UI;component/Themes/EasiTabItem.xaml" />-->
+        <ResourceDictionary Source="/Easi365UI;component/Themes/EasiListSort.xaml" />
+        <!--<ResourceDictionary Source="/Easi365UI;component/Themes/ExpanderAnimation.xaml" />--> 
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

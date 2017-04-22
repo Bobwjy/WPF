@@ -1,0 +1,134 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+             xmlns:staffsLstSort="clr-namespace:Easi365UI.Extention"
+             xmlns:Windows="clr-namespace:Easi365UI.Windows" x:Class="Easi365UI.UserControls.OrgManageUC"
+             mc:Ignorable="d"
+             d:DesignHeight="380" d:DesignWidth="990">
+    <UserControl.CommandBindings>
+        <!-- 绑定菜单命令 -->
+        <!--<CommandBinding Command="New" Executed="Dept_Add" />
+        <CommandBinding Command="Open" Executed="Dept_Edit" />
+        <CommandBinding Command="Open" Executed="Dept_View" />-->
+        <CommandBinding Command="Delete" CanExecute="DelDeptCanExecute" Executed="Dept_Del" />
+    </UserControl.CommandBindings>
+
+    <Grid x:Name="OrgManageGrid">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" MinWidth="120" MaxWidth="300"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TreeView x:Name="DeptsTvw" Width="240" Grid.Column="0" BorderThickness="1" BorderBrush="Transparent" HorizontalAlignment="Left" ItemsSource="{Binding DepartmentList}" SelectedItemChanged="DeptsTvw_SelectedItemChanged">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="True"/>
+                        <EventSetter Event="UIElement.PreviewMouseRightButtonDown" Handler="TreeViewItem_PreviewMouseRightButtonDown"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate  ItemsSource="{Binding Depts}">
+                        <TextBlock Text="{Binding DeptName}">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header ="添加员工">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Assets/images/add_contract.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header ="添加子部门">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Assets/images/add_dept.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header ="修改当前部门">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Assets/images/spacemanage.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header ="删除当前部门" Command="Delete">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Assets/images/remove.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header ="刷新部门结构" Click="RefreshDepts">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Assets/images/Refresh.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>
+                        </TextBlock>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="1" Background="#CCC"/>
+            <ListView x:Name="StaffLvw" staffsLstSort:ListViewBehavior.HeaderSort="True" Grid.Column="2" BorderBrush="Transparent" ItemsSource="{Binding}" VerticalAlignment="Top">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="50" staffsLstSort:ListViewBehavior.SortField="ID">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="0" Text="{Binding ID}" ToolTip="{Binding ID}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="姓名" Width="120" staffsLstSort:ListViewBehavior.SortField="UserName">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="0" Text="{Binding UserName}" ToolTip="{Binding UserName}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="账号" Width="240" staffsLstSort:ListViewBehavior.SortField="Account">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="0" Text="{Binding Account}" ToolTip="{Binding Account}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="联系电话" Width="120" staffsLstSort:ListViewBehavior.SortField="TelPhone">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="0" Text="{Binding TelPhone}" ToolTip="{Binding TelPhone}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="所属部门" Width="180" staffsLstSort:ListViewBehavior.SortField="Dept">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="0" Text="{Binding Dept}" ToolTip="{Binding Dept}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+                <!--context  Menu-->
+                <ListView.ContextMenu>
+                    <ContextMenu x:Name="ZoneIformationList" StaysOpen="true" Background="WhiteSmoke">
+                        <ContextMenu.BitmapEffect>
+                            <BitmapEffectGroup/>
+                        </ContextMenu.BitmapEffect>
+                        <MenuItem Header="编辑" x:Name="EditContextMenu">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/images/view.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="删除" x:Name="RemoveContextMenu" Click="DeleteStaff">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/images/remove.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+        </Grid>
+        <Windows:Loading x:Name="OrgLoadingUC" LoadingText="正在加载..." Margin="0,0,0,150"/>
+        <Windows:Loading x:Name="loading" LoadingText="正在删除..." Visibility="Collapsed"></Windows:Loading>
+    </Grid>
+    
+</UserControl>

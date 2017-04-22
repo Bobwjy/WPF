@@ -1,0 +1,199 @@
+﻿<eui:EasiWindow x:Class="Easi365UI.Views.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+        Title="Easi365网盘" Width="290" Height="730" 
+                WindowStartupLocation="Manual" MinWidth="290"
+                MaxWidth="550" ResizeMode="CanResize" >
+    <Grid x:Name="MainGrid">
+        <!--<Border x:Name="MainBorder" CornerRadius="6">
+            <Grid>-->
+        <Grid.Background>
+            <ImageBrush ImageSource="/assets/images/main-bg.png"/>
+        </Grid.Background>
+        <Canvas HorizontalAlignment="Left" Height="80" VerticalAlignment="Top">
+            <TextBlock x:Name="wTitle" Text="Easi365网盘" FontSize="13" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.636,0.664" Canvas.Left="10" Canvas.Top="8" />
+        </Canvas>
+        <StackPanel HorizontalAlignment="right" Height="22" VerticalAlignment="Top" Width="27" Margin="0,0,29,0">
+            <eui:EasiButton x:Name="MinBtn" VerticalAlignment="Top" Width="27" Height="22" RenderTransformOrigin="-0.519,0.092" ToolTip="最小化">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/mim.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/mie.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/min.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Width="1" Height="28" Margin="0,0,27,0" VerticalAlignment="Top">
+            <Image Height="28" Canvas.Top="3" Width="1" Source="/assets/images/line.png"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Height="18" Margin="0,6,6,0" VerticalAlignment="Top" Width="18">
+            <eui:EasiButton x:Name="CloseBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="12" Height="12" RenderTransformOrigin="-0.519,0.092"  ToolTip="关闭">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/close.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/close.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/close.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+        </StackPanel>
+        <Canvas HorizontalAlignment="Left" Width="260" Height="60" Margin="10,35,0,0" VerticalAlignment="Top">
+            <Image x:Name="userHeadPicture" Width="60" Height="60" Source="/assets/images/HeadPicture.jpg"/>
+            <TextBlock x:Name="userName" Canvas.Left="74" TextWrapping="Wrap" Text="Lisa Yang" Canvas.Top="7" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="jobTitle" Canvas.Left="74" TextWrapping="Wrap" Text="技术部 Sharepoint工程师" Canvas.Top="35" FontSize="13"/>
+        </Canvas>
+
+        <Grid x:Name="DataGrid" Margin="0,110,0,0" VerticalAlignment="Top">
+            <eui:EasiTabControl BorderThickness="0" Margin="0,0,0,26" ToolTip="个人空间">
+                <eui:EasiTabItem Width="55" Height="30" Foreground="White" Header="" >
+                    <eui:EasiTabItem.Background>
+                        <ImageBrush ImageSource="/assets/images/ps.png"/>
+                    </eui:EasiTabItem.Background>
+                    <eui:EasiTabItem.MyMoverBrush>
+                        <ImageBrush ImageSource="/assets/images/ps-enter.png"/>
+                    </eui:EasiTabItem.MyMoverBrush>
+                    <eui:EasiTabItem.MyEnterBrush>
+                        <ImageBrush ImageSource="/assets/images/ps-enter.png"/>
+                    </eui:EasiTabItem.MyEnterBrush>
+                    <Grid x:Name="persSpaceGrid" Margin="0">
+                        <TextBlock HorizontalAlignment="Left" Grid.Row="1" Margin="8" TextWrapping="Wrap" Text="个人空间" FontSize="14" VerticalAlignment="Top" Foreground="Black"/>
+                    </Grid>
+                </eui:EasiTabItem>
+                <eui:EasiTabItem Width="55" Height="30" Foreground="White" Header="" ToolTip="公司空间">
+                    <eui:EasiTabItem.Background>
+                        <ImageBrush ImageSource="/assets/images/cs.png"/>
+                    </eui:EasiTabItem.Background>
+                    <eui:EasiTabItem.MyMoverBrush>
+                        <ImageBrush ImageSource="/assets/images/cs-enter.png"/>
+                    </eui:EasiTabItem.MyMoverBrush>
+                    <eui:EasiTabItem.MyEnterBrush>
+                        <ImageBrush ImageSource="/assets/images/cs-enter.png"/>
+                    </eui:EasiTabItem.MyEnterBrush>
+                    <Grid x:Name="commonSpaceGrid">
+                        <TextBlock HorizontalAlignment="Left" Grid.Row="1" Margin="8" TextWrapping="Wrap" Text="公司空间" FontSize="14" VerticalAlignment="Top" Foreground="Black"/>
+                    </Grid>
+                </eui:EasiTabItem>
+                <eui:EasiTabItem Width="55" Height="30" Foreground="White" Header="" ToolTip="组织架构">
+                    <eui:EasiTabItem.Background>
+                        <ImageBrush ImageSource="/assets/images/org.png"/>
+                    </eui:EasiTabItem.Background>
+                    <eui:EasiTabItem.MyMoverBrush>
+                        <ImageBrush ImageSource="/assets/images/org-enter.png"/>
+                    </eui:EasiTabItem.MyMoverBrush>
+                    <eui:EasiTabItem.MyEnterBrush>
+                        <ImageBrush ImageSource="/assets/images/org-enter.png"/>
+                    </eui:EasiTabItem.MyEnterBrush>
+                    <Grid x:Name="orgGrid">
+                        <TextBlock HorizontalAlignment="Left" Grid.Row="1" Margin="8" TextWrapping="Wrap" Text="组织架构" FontSize="14" VerticalAlignment="Top" Foreground="Black"/>
+                    </Grid>
+                </eui:EasiTabItem>
+                <eui:EasiTabItem Width="55" Height="30" Foreground="White" Header="" ToolTip="任务提醒">
+                    <eui:EasiTabItem.Background>
+                        <ImageBrush ImageSource="/assets/images/tasks.png"/>
+                    </eui:EasiTabItem.Background>
+                    <eui:EasiTabItem.MyMoverBrush>
+                        <ImageBrush ImageSource="/assets/images/tasks-enter.png"/>
+                    </eui:EasiTabItem.MyMoverBrush>
+                    <eui:EasiTabItem.MyEnterBrush>
+                        <ImageBrush ImageSource="/assets/images/tasks-enter.png"/>
+                    </eui:EasiTabItem.MyEnterBrush>
+                    <Grid x:Name="tasksGrid">
+                        <TextBlock HorizontalAlignment="Left" Grid.Row="1" Margin="8" TextWrapping="Wrap" Text="任务提醒" FontSize="14" VerticalAlignment="Top" Foreground="Black"/>
+                    </Grid>
+                </eui:EasiTabItem>
+                <eui:EasiTabItem Width="55" Height="30" Foreground="White" Header="" ToolTip="工作邮箱">
+                    <eui:EasiTabItem.Background>
+                        <ImageBrush ImageSource="/assets/images/emails.png"/>
+                    </eui:EasiTabItem.Background>
+                    <eui:EasiTabItem.MyMoverBrush>
+                        <ImageBrush ImageSource="/assets/images/emails-enter.png"/>
+                    </eui:EasiTabItem.MyMoverBrush>
+                    <eui:EasiTabItem.MyEnterBrush>
+                        <ImageBrush ImageSource="/assets/images/emails-enter.png"/>
+                    </eui:EasiTabItem.MyEnterBrush>
+                    <Grid x:Name="emailsGrid">
+                        <TextBlock HorizontalAlignment="Left" Grid.Row="1" Margin="8" TextWrapping="Wrap" Text="工作邮件" FontSize="14" VerticalAlignment="Top" Foreground="Black"/>
+                        <Button x:Name="settingsBtn" Content="设置窗口预览" HorizontalAlignment="Left" Margin="186,10,0,0" VerticalAlignment="Top" Width="75" />
+                    </Grid>
+                </eui:EasiTabItem>
+            </eui:EasiTabControl>
+        </Grid>
+
+        <Canvas x:Name="toolCanvas" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="280">
+            <eui:EasiButton x:Name="NewFolderBtn" VerticalAlignment="Top" Width="28" Height="26" RenderTransformOrigin="-0.519,0.092" Canvas.Left="10" Canvas.Top="10" ToolTip="添加文件夹">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/newfolder-hover.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/newfolder-hover.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/newfolder.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+            <eui:EasiButton x:Name="UploadBtn" VerticalAlignment="Top" Width="28" Height="26" RenderTransformOrigin="-0.519,0.092" Canvas.Left="48" Canvas.Top="10" ToolTip="上传文件">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/upload-hover.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/upload-hover.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/upload.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+            <eui:EasiButton x:Name="ShareBtn" VerticalAlignment="Top" Width="28" Height="26" RenderTransformOrigin="-0.519,0.092" Canvas.Left="85" Canvas.Top="10" ToolTip="共享文件">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/share-hover.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/share-hover.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/share.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+            <eui:EasiButton x:Name="SendFileBtn" VerticalAlignment="Top" Width="28" Height="26" RenderTransformOrigin="-0.519,0.092" Canvas.Left="125" Canvas.Top="10" ToolTip="发送文件">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/sendfile-hover.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/sendfile-hover.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/sendfile.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+            <eui:EasiButton x:Name="NewFileBtn" VerticalAlignment="Top" Width="28" Height="26" RenderTransformOrigin="-0.519,0.092" Canvas.Left="165" Canvas.Top="10" ToolTip="新建文件">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/newfile-hover.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/newfile-hover.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/newfile.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+            <eui:EasiButton x:Name="DeleteBtn" VerticalAlignment="Top" Width="28" Height="26" RenderTransformOrigin="-0.519,0.092" Canvas.Left="205" Canvas.Top="10" ToolTip="删除文件">
+                <eui:EasiButton.MyMoverBrush>
+                    <ImageBrush ImageSource="/assets/images/delete-hover.png"/>
+                </eui:EasiButton.MyMoverBrush>
+                <eui:EasiButton.MyEnterBrush>
+                    <ImageBrush ImageSource="/assets/images/delete-hover.png"/>
+                </eui:EasiButton.MyEnterBrush>
+                <eui:EasiButton.Background>
+                    <ImageBrush ImageSource="/assets/images/delete.png"/>
+                </eui:EasiButton.Background>
+            </eui:EasiButton>
+        </Canvas>
+        <!--</Grid>
+        </Border>-->
+    </Grid>
+</eui:EasiWindow>

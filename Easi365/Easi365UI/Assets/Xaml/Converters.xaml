@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cov="clr-namespace:Easi365UI.Windows.Converters">
+    <cov:StringToImage x:Key="stringToImage"></cov:StringToImage>
+    <cov:FileSizeFormat x:Key="fileSizeFormat"></cov:FileSizeFormat>
+    <cov:BoolToVisibilityConverter x:Key="boolToVisibility"></cov:BoolToVisibilityConverter>
+    <cov:NumberToVisibility x:Key="numberToVisibility"></cov:NumberToVisibility>
+    <cov:NumberToText x:Key="numberToText"></cov:NumberToText>
+    <cov:SharedWithToIcon x:Key="sharedWithToIcon"></cov:SharedWithToIcon>
+    <cov:ToComboxRole x:Key="toRoleIndex"></cov:ToComboxRole>
+    <cov:NumberToProgressValue x:Key="numberToProgressValue"></cov:NumberToProgressValue>
+</ResourceDictionary>

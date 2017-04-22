@@ -1,0 +1,9 @@
+﻿<Window x:Class="Easi365UI.Windows.ViewDocPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:Easi365UI.Windows"
+        Loaded="Window_Loaded"
+        Title="DocumentViewr" WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize">
+
+    <WebBrowser Name="officeDocViewr"/>
+</Window>

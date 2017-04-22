@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Easi365UI.Extention.ChooseUserPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+             mc:Ignorable="d"
+             x:Name="UserPicker" Loaded="UserPicker_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="CheckedUsersLst" Grid.Column="0" ItemsSource="{Binding Users}" Margin="0,0,5,0" VerticalAlignment="Top">
+            <ListBox.Template>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <Border BorderBrush="#FFABADB3" BorderThickness="1" Padding="1">
+                        <ScrollViewer Height="40" HorizontalScrollBarVisibility="Disabled">
+                            <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding UserName}" VerticalAlignment="Center"/>
+                        <eui:EasiButton x:Name="btnRemoveUser" Tag="{Binding Id}" VerticalAlignment="Center" Width="12" Height="12" Margin="3,0,0,0" Click="btnRemoveUser_Click" ToolTip="删除">
+                            <eui:EasiButton.MyMoverBrush>
+                                <ImageBrush ImageSource="/Assets/images/del_hover.png"/>
+                            </eui:EasiButton.MyMoverBrush>
+                            <eui:EasiButton.MyEnterBrush>
+                                <ImageBrush ImageSource="/Assets/images/del_hover.png"/>
+                            </eui:EasiButton.MyEnterBrush>
+                            <eui:EasiButton.Background>
+                                <ImageBrush ImageSource="/Assets/images/del.png"/>
+                            </eui:EasiButton.Background>
+                        </eui:EasiButton>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btnChooseUser" Grid.Column="1" Content="选择用户" VerticalAlignment="Top" Width="60" Height="24" Margin="0" Click="btnChooseUser_Click"/>
+    </Grid>
+</UserControl>

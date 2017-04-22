@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Easi365UI.Windows.Loading"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Border CornerRadius="4" Background="#595959" Width="130" Height="40" BorderBrush="#595959" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True" Opacity="0.8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Width="30" Height="30">
+                    <Ellipse Width="28" Height="28" Fill="#595959"  Stroke="#666666" StrokeThickness="4" VerticalAlignment="Center" />
+                    <Ellipse Width="28" Height="28" Fill="#595959"  Stroke="#2cb6e7" StrokeThickness="4" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <Ellipse.Clip>
+                            <RectangleGeometry Rect="0, 0, 12, 12"/>
+                        </Ellipse.Clip>
+                        <Ellipse.RenderTransform>
+                            <RotateTransform x:Name="loading" Angle="0"/>
+                        </Ellipse.RenderTransform>
+                        <Ellipse.Triggers>
+                            <EventTrigger RoutedEvent="Ellipse.Loaded">
+                                <BeginStoryboard HandoffBehavior="Compose">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="loading" Storyboard.TargetProperty="Angle" By="108000" Duration="0:5:0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Ellipse.Triggers>
+                    </Ellipse>
+                </Grid>
+                <TextBlock Name="lodingText" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

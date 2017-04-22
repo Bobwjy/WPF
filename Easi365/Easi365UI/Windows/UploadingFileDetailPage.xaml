@@ -1,0 +1,161 @@
+﻿<eui:EasiWindow x:Class="Easi365UI.Windows.UploadingFileDetailPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:eui="clr-namespace:Easi365UI.Windows.Controls" 
+        xmlns:uc="clr-namespace:Easi365UI.Windows"
+                WindowStyle="None"
+        Title="UploadingFileDetailPage" Height="415" Width="650" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Assets/Xaml/Converters.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Assets/Xaml/TabControl.xaml"/>
+                <ResourceDictionary Source="/Assets/Xaml/ListViewItemDic.xaml"/>
+                <ResourceDictionary Source="/Assets/Xaml/ListViewDic.xaml"/>
+                <ResourceDictionary Source="/Assets/Xaml/Common.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border BorderThickness="1" Background="White" BorderBrush="Black" Height="390">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="331"/>
+                <RowDefinition Height="29"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Canvas Grid.Row="0" Height="30" VerticalAlignment="Top" Width="Auto">
+                    <Canvas.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1954BB" Offset="0"/>
+                            <GradientStop Color="#65ADCA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Canvas.Background>
+                    <TextBlock x:Name="wTitle" Text="文件传输记录" FontSize="13" Foreground="White" FontWeight="Bold" Canvas.Left="10" Canvas.Top="5" />
+                    <Image Height="28" Canvas.Top="0" Width="1" Source="/Assets/images/line.png" Canvas.Right="26"/>
+                    <eui:EasiButton x:Name="CloseBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="27" Height="22" Click="Button_Click" ToolTip="关闭" Canvas.Right="0">
+                        <eui:EasiButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                        </eui:EasiButton.MyMoverBrush>
+                        <eui:EasiButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                        </eui:EasiButton.MyEnterBrush>
+                        <eui:EasiButton.Background>
+                            <ImageBrush ImageSource="/Assets/images/close.png"/>
+                        </eui:EasiButton.Background>
+                    </eui:EasiButton>
+                </Canvas>
+            </Grid>
+
+            <TabControl HorizontalAlignment="Left" Height="320" 
+                        Name="UploadFileTabControl"
+                        Margin="5,8,-1,0" Grid.Row="1" 
+                        VerticalAlignment="Top" 
+                        SelectionChanged="TabControl_SelectionChanged"
+                        Width="638" >
+                <TabItem  Style="{DynamicResource TabItemStyle1}">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="正在传输的任务"/>
+                            <TextBlock Text="("/>
+                            <TextBlock Text="{Binding Path=UploadingItems.Count}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="White">
+                        <ListView 
+                        HorizontalAlignment="Stretch" 
+                       VerticalAlignment="Stretch"
+                        BorderThickness="0" 
+                        Style="{DynamicResource ListViewStyle1}"
+                        ItemsSource="{Binding UploadingItems}" 
+                        >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="文件名" Width="280" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                    <GridViewColumn Header="状态" Width="130" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                    <GridViewColumn Width="150" Header="进度">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <!--文件上载进度-->
+                                                <StackPanel 
+                                        Orientation="Horizontal">
+                                                    <!--<TextBlock
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Width="60" Visibility="Collapsed"
+                                            Text="{Binding Path=UploadState.UploadPercent,StringFormat=\{0:P\}}" 
+                                            TextAlignment="Right"></TextBlock>-->
+                                                    <ProgressBar HorizontalAlignment="Left" 
+                                                             Height="8"
+                                                             VerticalAlignment="Top" 
+                                                             Width="80"
+                                                             Maximum="{Binding Path=UploadState.TotalBytes,Converter={StaticResource numberToProgressValue}}"
+                                                             Minimum="0"
+                                                             Value="{Binding Path=UploadState.BytesWrite}"
+                                                             />
+                                                    <Button>
+                                                        <TextBlock Text="取消" Foreground="Blue" Cursor="Hand"/>
+                                                    </Button>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+                <TabItem Style="{DynamicResource TabItemStyle1}">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="已经完成的任务"/>
+                            <TextBlock Text="("/>
+                            <TextBlock Text="{Binding Path=UploadedItems.Count}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="White">
+                        <ListView 
+                              Height="311.04" VerticalAlignment="Top" 
+                               HorizontalAlignment="Stretch" BorderThickness="0" 
+                              Style="{DynamicResource ListViewStyle1}"
+                              ItemsSource="{Binding UploadedItems}"
+                              >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="文件名" Width="280" DisplayMemberBinding="{Binding FileName}"/>
+                                    <GridViewColumn Width="100" Header="大小">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" HorizontalAlignment="Right">
+                                                    <TextBlock.Text>
+                                                        <MultiBinding Converter="{StaticResource fileSizeFormat}">
+                                                            <Binding Path="Size" />
+                                                            <Binding Path="IsDirectory" />
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="时间" Width="120" DisplayMemberBinding="{Binding CreatedDate, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <uc:Loading x:Name="ucDeleting"
+                        Grid.Row="1"
+                         LoadingText="正在删除..."
+                        Visibility="Collapsed"></uc:Loading>
+            <StackPanel Name="CommandPanel" HorizontalAlignment="Right" Grid.Row="2">
+                <Button Name="btnClearErrors" Margin="0,0,20,0" Visibility="Collapsed" Style="{StaticResource EasiLinkButton}" Click="btnClearErrors_Click">清除失败</Button>
+                <Button Name="btnClearUploadHistories" Visibility="Collapsed" Margin="0,0,20,0" Style="{StaticResource EasiLinkButton}" Click="btnClearUploadHistories_Click">清除历史记录</Button>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+</eui:EasiWindow>

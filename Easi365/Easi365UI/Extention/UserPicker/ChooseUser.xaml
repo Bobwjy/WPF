@@ -1,0 +1,82 @@
+﻿<eui:EasiWindow x:Class="Easi365UI.Extention.ChooseUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+        xmlns:model="clr-namespace:Easi365UI.Models"
+        Title="ChooserUser" Height="400" Width="320" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="ShareProvider" ObjectType="{x:Type model:OrgViewModel}" MethodName="Create"/>
+        <Style x:Key="TreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded,Mode=TwoWay}" />
+        </Style>
+        <HierarchicalDataTemplate x:Key="CheckBoxItemTemplate" ItemsSource="{Binding Children}">
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <CheckBox Name="TreeItemChk" Focusable="False" IsChecked="{Binding IsChecked,Mode=TwoWay}" Visibility="{Binding IsUser,Converter={StaticResource boolToVisibility}}" VerticalAlignment="Center" Click="TreeItemChk_Click" />
+                <ContentPresenter Content="{Binding DisplayText,Mode=OneWay}" Margin="2,0" />
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
+    <Border BorderThickness="1" Background="White" BorderBrush="Black">
+        <Grid>
+            <Canvas Height="30" VerticalAlignment="Top" Width="Auto">
+                <Canvas.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1954BB" Offset="0"/>
+                        <GradientStop Color="#65ADCA" Offset="1"/>
+                    </LinearGradientBrush>
+                </Canvas.Background>
+                <TextBlock x:Name="wTitle" Text="选择用户" FontSize="14" Foreground="White" FontWeight="Bold" Canvas.Left="10" Canvas.Top="5" />
+                <eui:EasiButton x:Name="MinBtn" VerticalAlignment="Top" Width="27" Height="22" Click="MinBtn_Click" ToolTip="最小化" Canvas.Right="25">
+                    <eui:EasiButton.MyMoverBrush>
+                        <ImageBrush ImageSource="/Assets/images/mim.png"/>
+                    </eui:EasiButton.MyMoverBrush>
+                    <eui:EasiButton.MyEnterBrush>
+                        <ImageBrush ImageSource="/Assets/images/mie.png"/>
+                    </eui:EasiButton.MyEnterBrush>
+                    <eui:EasiButton.Background>
+                        <ImageBrush ImageSource="/Assets/images/min.png"/>
+                    </eui:EasiButton.Background>
+                </eui:EasiButton>
+                <Image Height="28" Canvas.Top="0" Width="1" Source="/Assets/images/line.png" Canvas.Right="24"/>
+                <eui:EasiButton x:Name="CloseBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="27" Height="22" Click="CloseWindow" ToolTip="关闭" Canvas.Right="0" Canvas.Top="0">
+                    <eui:EasiButton.MyMoverBrush>
+                        <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                    </eui:EasiButton.MyMoverBrush>
+                    <eui:EasiButton.MyEnterBrush>
+                        <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                    </eui:EasiButton.MyEnterBrush>
+                    <eui:EasiButton.Background>
+                        <ImageBrush ImageSource="/Assets/images/close.png"/>
+                    </eui:EasiButton.Background>
+                </eui:EasiButton>
+            </Canvas>
+            <Grid Margin="5,30,5,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <TreeView Grid.Row="0" BorderThickness="0" VerticalAlignment="Top" ItemContainerStyle="{StaticResource TreeViewItemStyle}" ItemsSource="{Binding Source={StaticResource ShareProvider}}" ItemTemplate="{StaticResource CheckBoxItemTemplate}" />
+                <ListBox Name="CheckedUsersLst" Grid.Row="1" ItemsSource="{Binding CheckedUsers}" Margin="0,10" VerticalAlignment="Top">
+                    <ListBox.Template>
+                        <ControlTemplate TargetType="{x:Type ListBox}">
+                            <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                        </ControlTemplate>
+                    </ListBox.Template>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding UserName}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button x:Name="btnChooseUser" Click="btnChooseUser_Click" IsDefault="True" Width="75" Height="24" Content="确定"/>
+                    <Button x:Name="btnCancel" Content="取消" Width="75" Height="24" Margin="8,0,0,0" Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</eui:EasiWindow>

@@ -1,0 +1,52 @@
+﻿<eui:EasiWindow x:Class="Easi365UI.OrgManage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Windows="clr-namespace:Easi365UI.Windows" 
+        xmlns:eui="clr-namespace:Easi365UI.Windows.Controls"
+        xmlns:uc="clr-namespace:Easi365UI.UserControls"
+        Title="组织架构管理" Height="500" Width="950" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    
+    <Grid x:Name="OrgManageGrid">
+        <Border Background="White" BorderBrush="Black" BorderThickness="1" Height="500">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Canvas x:Name="ContentHeader" HorizontalAlignment="Left" Grid.Row="0" Height="30" VerticalAlignment="Top" Width="948">
+                    <Canvas.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF1954BB" Offset="0"/>
+                            <GradientStop Color="#65ADCA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Canvas.Background>
+                    <TextBlock x:Name="wTitle" Text="组织架构管理" FontSize="14" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.636,0.664" Canvas.Left="10" Canvas.Top="5" />
+                    <eui:EasiButton x:Name="MinBtn" VerticalAlignment="Top" Width="27" Height="22" RenderTransformOrigin="-0.519,0.092" Click="MinBtn_Click" ToolTip="最小化" Canvas.Left="890">
+                        <eui:EasiButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Assets/images/mim.png"/>
+                        </eui:EasiButton.MyMoverBrush>
+                        <eui:EasiButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Assets/images/mie.png"/>
+                        </eui:EasiButton.MyEnterBrush>
+                        <eui:EasiButton.Background>
+                            <ImageBrush ImageSource="/Assets/images/min.png"/>
+                        </eui:EasiButton.Background>
+                    </eui:EasiButton>
+                    <Image Height="28" Canvas.Top="0" Width="1" Source="/Assets/images/line.png" Canvas.Left="918"/>
+                    <eui:EasiButton x:Name="CloseBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="27" Height="22" RenderTransformOrigin="-0.519,0.092" Click="CloseBtn_Click" ToolTip="关闭" Canvas.Left="921" Canvas.Top="0">
+                        <eui:EasiButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                        </eui:EasiButton.MyMoverBrush>
+                        <eui:EasiButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Assets/images/closeb.png"/>
+                        </eui:EasiButton.MyEnterBrush>
+                        <eui:EasiButton.Background>
+                            <ImageBrush ImageSource="/Assets/images/close.png"/>
+                        </eui:EasiButton.Background>
+                    </eui:EasiButton>
+                </Canvas>
+                <uc:OrgManageUC x:Name="orgUC" Grid.Row="1" VerticalAlignment="Top" Height="480" />
+            </Grid>
+        </Border>
+    </Grid>
+</eui:EasiWindow>

@@ -1,0 +1,52 @@
+﻿<Window x:Class="Easi365UI.Lync.Invite"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="邀请更多用户" FontFamily="微软雅黑" Height="510" Width="360" ResizeMode="CanMinimize" Loaded="Window_Loaded_1" WindowStyle="None" BorderThickness="2" BorderBrush="#FFA0D0F7">
+    <Window.Resources>
+        <Color x:Key="Color1">#FF0072C6</Color>
+    </Window.Resources>
+    <Grid>
+        <Label Content="发送即时消息" HorizontalAlignment="Left" Margin="10,17,0,0" Padding="0" VerticalAlignment="Top" FontSize="18">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color1}"/>
+            </Label.Foreground>
+        </Label>
+        <Button Content="╳" HorizontalAlignment="Right" Margin="0,5,0,0" VerticalAlignment="Top" Width="22" Height="20" Background="Transparent" BorderBrush="Transparent" Click="Button_Click_1"/>
+        <Label Content="选择联系人或键入你希望发送即时消息的人员的姓名。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,63,0,0" Padding="0"/>
+        <TextBox Height="27" Margin="10,88,10,0" TextWrapping="Wrap" Padding="4" Text="" VerticalAlignment="Top"/>
+        <ListBox Name="listContact" ItemsSource="{Binding ContractList}" Height="335" Margin="10,126,10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="ListBoxItem_MouseDoubleClick"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Grid Height="40" Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="{Binding Color}" Height="36" Width="40" HorizontalAlignment="Left">
+                                <Image Source="{Binding Photo}" Width="36" Stretch="Fill" Margin="6 0 0 0" HorizontalAlignment="Left"/>
+                            </Border>
+                            <WrapPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                <TextBlock Text="{Binding DisplayName}" ToolTip="{Binding DisplayName}" FontSize="14"/>
+                                <TextBlock Text=" - " Padding="0,2,0,0"/>
+                                <TextBlock Text="{Binding State}" ToolTip="{Binding State}" Padding="0,2,0,0"/>
+                            </WrapPanel>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding PersonNote}" ToolTip="{Binding PersonNote}"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="确定" HorizontalAlignment="Right" Margin="0,0,100,10" VerticalAlignment="Bottom" Width="75" Height="30" Background="Transparent" Click="Button_Click_3"/>
+        <Button Content="取消" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Height="30" Background="Transparent" Click="Button_Click_2"/>
+    </Grid>
+</Window>
